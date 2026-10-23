@@ -62,8 +62,3 @@ async def search(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         artist, title = t["artist"]["name"], t["title"]
         query = quote(f"{artist} {title}")
         sp = await spotify_link(artist, title)
-        links = [f'<a href="{t["link"]}">Deezer</a>']
-        links.append(f'<a href="{sp}">Spotify</a>' if sp else f'<a href="https://open.spotify.com/search/{query}">Spotify (поиск)</a>')
-        links.append(f'<a href="https://music.yandex.ru/search?text={query}">Яндекс Музыка</a>')
-        links.append(f'<a href="https://www.youtube.com/results?search_query={query}">YouTube</a>')
-        text = (f"🎵 <b>{html.escape(title)}
